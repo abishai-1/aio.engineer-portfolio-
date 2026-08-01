@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Portfolio — Dark Cinematic Theme — Gold Accent Edition
+   ============================================================ */
+:root {
+  /* shadcn compatibility */
+  --background: 0 0% 3.1%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 6.7%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 6.7%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 0 0% 10%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 10%;
+  --input: 0 0% 10%;
+  --ring: 0 0% 83.1%;
+  --radius: 0.75rem;
+}
+
+/* ─── Gold accent variables ─────────────────────────────── */
+:root {
+  --gold:          #C9A84C;
+  --gold-bright:   #F0C040;
+  --gold-muted:    #9B7B3A;
+  --gold-glow-md:  rgba(201, 168, 76, 0.30);
+  --gold-glow-sm:  rgba(201, 168, 76, 0.12);
+  --gold-glow-xs:  rgba(201, 168, 76, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #080808;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@layer base {
+  * { border-color: hsl(var(--border)); }
+}
+
+body {
+  background-color: #080808;
+  color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
+}
+
+/* ─── Global grain overlay ──────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
+/* ─── Hero noise overlay ────────────────────────────────── */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ─── Typography ────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-syne, ui-sans-serif, sans-serif);
+}
+
+/* ─── Gradient text — cream warm white ─────────────────── */
+.gradient-text-cream {
+  background: linear-gradient(135deg, #E1E0CC 0%, #9a9886 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Gradient text — GOLD accent (replaces purple) ─────── */
+.gradient-text-accent {
+  background: linear-gradient(135deg, #F0C040 0%, #C9A84C 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Gold glow utility ─────────────────────────────────── */
+.glow-gold {
+  box-shadow: 0 0 24px var(--gold-glow-md), 0 0 60px var(--gold-glow-sm);
+}
+
+/* ─── Service card hover — gold glow ────────────────────── */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(201, 168, 76, 0.09) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before { opacity: 1; }
+
+.service-card:hover {
+  border-color: rgba(201, 168, 76, 0.22) !important;
+  background-color: #161410 !important;
+  transform: translateY(-2px);
+}
+
+/* ─── Experience featured card — gold ───────────────────── */
+.exp-card-featured {
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.07) 0%, rgba(240, 192, 64, 0.04) 100%);
+  border-color: rgba(201, 168, 76, 0.28) !important;
+}
+
+/* ─── Animated gradient orb ─────────────────────────────── */
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.08); }
+}
+
+.orb-animate { animation: orb-pulse 6s ease-in-out infinite; }
+
+/* ─── Section divider line ───────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.15), transparent);
+}
+
+/* ─── Liquid glass nav dock ─────────────────────────────── */
+.glass-nav {
+  transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(4, 4, 4, 0.30);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: none;
+  box-shadow:
+    0 0 6px rgba(0,0,0,0.03),
+    0 2px 8px rgba(0,0,0,0.14),
+    inset 3px 3px 0.5px -3.5px rgba(255,255,255,0.09),
+    inset -3px -3px 0.5px -3.5px rgba(255,255,255,0.55),
+    inset 1px 1px 1px -0.5px rgba(255,255,255,0.35),
+    inset -1px -1px 1px -0.5px rgba(255,255,255,0.35),
+    inset 0 0 6px 6px rgba(255,255,255,0.07),
+    inset 0 0 2px 2px rgba(255,255,255,0.04),
+    0 0 20px rgba(201, 168, 76, 0.06);
+}
