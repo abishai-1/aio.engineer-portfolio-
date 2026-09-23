@@ -33,7 +33,7 @@ import {
   SiGit,
   SiGithub,
   SiNodedotjs,
-  SiJson,
+  SiGsap,
 } from "react-icons/si";
 
 // Tool data items — Row 1 (Creative & 3D)
@@ -63,7 +63,7 @@ const codeTools = [
   { name: "Git", icon: SiGit, color: "#F05032" },
   { name: "GitHub", icon: SiGithub, color: "#FFFFFF" },
   { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
-  { name: "JSON", icon: SiJson, color: "#C9A84C" },
+  { name: "GSAP", icon: SiGsap, color: "#88CE02" },
 ];
 
 export function AboutSection() {

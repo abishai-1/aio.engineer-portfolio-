@@ -11,29 +11,12 @@ const Circle = forwardRef<
   HTMLDivElement,
   { className?: string; children?: React.ReactNode; href?: string; title?: string }
 >(({ className, children, href, title }, ref) => {
-  const handleClick = (e: React.MouseEvent) => {
-    if (!href) return;
-    e.stopPropagation();
+  const isMailto = href?.startsWith("mailto:");
 
-    if (href.startsWith("mailto:")) {
-      // 1. Trigger default system email client
-      window.location.href = href;
-      // 2. Open Gmail webmail as reliable fallback in a new tab
-      window.open(
-        "https://mail.google.com/mail/?view=cm&fs=1&to=abishaiyelleti1@gmail.com&su=Project%20Inquiry%20-%20Abishai%20Yelleti",
-        "_blank",
-        "noopener,noreferrer"
-      );
-    } else {
-      window.open(href, "_blank", "noopener,noreferrer");
-    }
-  };
-
-  return (
+  const content = (
     <div
       ref={ref}
       title={title}
-      onClick={handleClick}
       className={cn(
         "z-20 relative flex size-11 items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] bg-[#111] p-2.5 text-[#E1E0CC] shadow-lg transition-all duration-300 hover:scale-110 hover:border-[rgba(201,168,76,0.5)] hover:bg-[#181610] hover:text-[#C9A84C] hover:shadow-[0_0_15px_rgba(201,168,76,0.3)] cursor-pointer pointer-events-auto",
         className
@@ -42,6 +25,21 @@ const Circle = forwardRef<
       {children}
     </div>
   );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={isMailto ? undefined : "_blank"}
+        rel={isMailto ? undefined : "noopener noreferrer"}
+        className="z-20 relative block pointer-events-auto"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 });
 
 Circle.displayName = "Circle";
@@ -195,7 +193,7 @@ export function FooterBeam() {
           <div className="flex flex-row items-center justify-between">
             <Circle
               ref={emailRef}
-              href="mailto:abishaiyelleti1@gmail.com?subject=Project%20Inquiry%20-%20Abishai%20Yelleti&body=Hi%20Abishai,%0A%0AI'd%20love%20to%20connect%20and%20discuss%20a%20project!"
+              href="mailto:abishaiyelleti1@gmail.com?subject=Project%20Inquiry%20-%20Abishai%20Yelleti"
               title="Send an Email"
             >
               <Mail className="h-5 w-5 text-[#C9A84C]" />

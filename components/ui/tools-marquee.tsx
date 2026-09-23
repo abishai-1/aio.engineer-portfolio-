@@ -30,7 +30,7 @@ const CODE_ITEMS = [
   "Git",
   "GitHub",
   "Node.js",
-  "JSON",
+  "GSAP",
 ];
 
 const FONT_FAMILY =

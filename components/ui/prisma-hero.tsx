@@ -156,15 +156,16 @@ const PrismaHero = () => {
                 transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="self-start"
               >
-                <Link href="/error">
-                  <LiquidButton
-                    size="lg"
-                    className="text-[#E1E0CC] font-medium tracking-wide"
-                  >
-                    Get in Touch
-                    <ArrowRight className="h-4 w-4 text-[#C9A84C]" />
-                  </LiquidButton>
-                </Link>
+                <LiquidButton
+                  size="lg"
+                  className="text-[#E1E0CC] font-medium tracking-wide"
+                  onClick={() =>
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Get in Touch
+                  <ArrowRight className="h-4 w-4 text-[#C9A84C]" />
+                </LiquidButton>
               </motion.div>
             </div>
           </div>
