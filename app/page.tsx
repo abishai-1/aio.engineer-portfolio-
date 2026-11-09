@@ -3,6 +3,7 @@ import { PrismaHero } from "@/components/ui/prisma-hero";
 import { AboutSection } from "@/components/ui/about-section";
 import { ServicesSection } from "@/components/ui/services-section";
 import { ExperienceSection } from "@/components/ui/experience-section";
+import { AchievementsSection } from "@/components/ui/achievements-section";
 import { PhilosophySection } from "@/components/ui/philosophy-section";
 import { ContactSection } from "@/components/ui/contact-section";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
@@ -27,6 +28,9 @@ export default function Home() {
         {/* Experience cards with stats integrated */}
         <ExperienceSection />
 
+        {/* Achievements */}
+        <AchievementsSection />
+
         {/* Philosophy quote */}
         <PhilosophySection />
 
@@ -47,7 +51,7 @@ export default function Home() {
           {/* Left & Right Links (Projects on Left, Connect on Right) */}
           <div className="w-full flex items-center justify-between text-xs font-display font-medium tracking-widest uppercase px-2 sm:px-6 pt-1">
             <Link
-              href="/error"
+              href="#experience"
               className="text-[#888] hover:text-[#C9A84C] transition-colors"
             >
               Projects

@@ -30,7 +30,7 @@ export function ContactSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-xs uppercase tracking-[0.3em] text-[#3a3a3a] mb-8"
         >
-          05 — Get In Touch
+          06 — Get In Touch
         </motion.p>
 
         {/* Availability badge */}

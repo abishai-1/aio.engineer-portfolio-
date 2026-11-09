@@ -42,7 +42,7 @@ export function PhilosophySection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-xs uppercase tracking-[0.3em] text-[#3a3a3a] mb-12"
         >
-          04 — My Philosophy
+          05 — My Philosophy
         </motion.p>
 
         {/* Large quote mark */}

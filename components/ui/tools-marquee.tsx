@@ -23,6 +23,8 @@ const CODE_ITEMS = [
   "JavaScript",
   "TypeScript",
   "React",
+  "React Native",
+  "Kotlin",
   "Next.js",
   "Tailwind CSS",
   "Python",

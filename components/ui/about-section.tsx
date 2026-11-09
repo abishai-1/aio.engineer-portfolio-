@@ -34,6 +34,7 @@ import {
   SiGithub,
   SiNodedotjs,
   SiGsap,
+  SiKotlin,
 } from "react-icons/si";
 
 // Tool data items — Row 1 (Creative & 3D)
@@ -56,6 +57,8 @@ const codeTools = [
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "React", icon: SiReact, color: "#61DAFB" },
+  { name: "React Native", icon: SiReact, color: "#61DAFB" },
+  { name: "Kotlin", icon: SiKotlin, color: "#7F52FF" },
   { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
   { name: "Python", icon: SiPython, color: "#3776AB" },
@@ -197,7 +200,7 @@ export function AboutSection() {
                 <Sparkles className="h-4 w-4 text-[#C9A84C]" />
               </div>
               <p className="text-[#777] text-xs leading-relaxed">
-                Proficient in 22 industry-standard tools across 3D animation, real-time rendering,
+                Proficient in 24 industry-standard tools across 3D animation, real-time rendering,
                 visual effects, design, and full-stack web development.
               </p>
               <LiquidButton
@@ -236,7 +239,7 @@ export function AboutSection() {
             </div>
 
             <span className="text-xs text-[#555] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.08)] bg-[#111] self-start sm:self-auto">
-              22 Specialized Tools
+              24 Specialized Tools
             </span>
           </div>
 
@@ -355,7 +358,7 @@ export function AboutSection() {
 
               {/* Modal Footer */}
               <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#555]">
-                <span>22 Technical &amp; Creative Tools</span>
+                <span>24 Technical &amp; Creative Tools</span>
                 <LiquidButton size="sm" onClick={() => setIsModalOpen(false)}>
                   Close
                 </LiquidButton>

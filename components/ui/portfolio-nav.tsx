@@ -16,6 +16,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: "about", label: "About", href: "#about" },
   { id: "services", label: "Services", href: "#services" },
   { id: "experience", label: "Experience", href: "#experience" },
+  { id: "achievements", label: "Awards", href: "#achievements" },
   { id: "philosophy", label: "Philosophy", href: "#philosophy" },
   { id: "contact", label: "Contact", href: "#contact" },
 ];
@@ -24,7 +25,7 @@ export function PortfolioNav() {
   const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
-    const sectionIds = ["home", "about", "services", "experience", "philosophy", "contact"];
+    const sectionIds = ["home", "about", "services", "experience", "achievements", "philosophy", "contact"];
     
     // Track ratios of all sections to find the most prominent section in view
     const ratios: Record<string, number> = {};

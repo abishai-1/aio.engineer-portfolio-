@@ -1,9 +1,45 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { Clapperboard, Lightbulb, Atom, Sparkles, Flame } from "lucide-react";
+import {
+  Clapperboard,
+  Lightbulb,
+  Atom,
+  Sparkles,
+  Flame,
+  Smartphone,
+  Building2,
+  ArrowUpRight,
+} from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { GlowingShadow } from "@/components/ui/glowing-shadow";
+
+// Row 0: Professional work (2 wide cards)
+const professionalWork = [
+  {
+    icon: Smartphone,
+    company: "Multioks",
+    role: "UI/UX Designer & Frontend Engineer",
+    badge: "Web + Mobile App",
+    description:
+      "Built and developed the official website for Multioks, an on-demand home services platform, and worked on its mobile app as both UI/UX Designer and Frontend Engineer — shaping the user experience, interface design, and frontend implementation.",
+    tags: ["UI/UX", "Mobile App", "Frontend", "Web Dev"],
+    links: [
+      { label: "Website", href: "https://multioks.com/" },
+      { label: "Play Store", href: "https://play.google.com/store/apps/details?id=com.multioks.customer" },
+    ],
+  },
+  {
+    icon: Building2,
+    company: "Ilish 3D Technologies Pvt. Ltd.",
+    role: "Web Developer",
+    badge: "Corporate Website",
+    description:
+      "Built and developed the corporate website for Ilish 3D Technologies, the parent company of Multioks — owning its web presence and frontend implementation.",
+    tags: ["Web Dev", "Frontend", "Corporate Site"],
+    links: [{ label: "Website", href: "https://www.ilish3dtechnologiesprivatelimited.com/" }],
+  },
+];
 
 // Top row: 4 cards (Yesdas 1st, Entrepreneur Cell 2nd, Forge Founders 3rd, Quantum Club 4th)
 const topRowExperiences = [
@@ -64,7 +100,7 @@ const freelanceExperience = {
 
 const stats = [
   { target: 50, suffix: "+", isInfinity: false, label: "Projects Completed", sub: "Across web, 3D & design" },
-  { target: 4, suffix: "", isInfinity: false, label: "Leadership & Core Roles", sub: "Yesdas, E-Cell, Forge, Quantum" },
+  { target: 7, suffix: "", isInfinity: false, label: "Leadership & Core Roles", sub: "Multioks, Ilish 3D, Yesdas, E-Cell, Forge, Quantum & Freelance" },
   { target: 1, suffix: "", isInfinity: false, label: "Feature Film", sub: "Greyborn — in production" },
   { target: 0, suffix: "", isInfinity: true, label: "Coffee Consumed", sub: "Fuelling every all-nighter ☕" },
 ];
@@ -146,6 +182,69 @@ export function ExperienceSection() {
           Where I&apos;ve contributed.
         </motion.h2>
 
+        {/* ── Row 0: Professional work (Multioks, Ilish 3D) ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch mb-6">
+          {professionalWork.map((work, i) => {
+            const Icon = work.icon;
+            return (
+              <motion.div
+                key={work.company}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.15 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="h-full"
+              >
+                <GlowingShadow className="h-full">
+                  <div className="flex flex-col justify-between h-full w-full">
+                    <div>
+                      <div className="flex items-start justify-between gap-3 mb-4">
+                        <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border bg-[rgba(201,168,76,0.18)] border-[rgba(201,168,76,0.35)] shadow-[0_0_12px_rgba(201,168,76,0.25)] shrink-0">
+                          <Icon className="h-5 w-5 text-[#F5D565]" strokeWidth={1.5} />
+                        </div>
+                        <span className="text-[10px] uppercase tracking-wider font-display border rounded-full px-2.5 py-0.5 bg-[rgba(201,168,76,0.18)] text-[#F5D565] border-[rgba(201,168,76,0.38)] shadow-[0_0_12px_rgba(201,168,76,0.2)]">
+                          {work.badge}
+                        </span>
+                      </div>
+
+                      <h3 className="font-display text-[#E1E0CC] text-lg font-bold leading-snug mb-1">
+                        {work.company}
+                      </h3>
+                      <p className="text-[#888] text-xs font-medium mb-3 leading-snug">{work.role}</p>
+                      <p className="text-[#666] text-xs sm:text-sm leading-relaxed mb-4">{work.description}</p>
+
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {work.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs font-display font-medium text-[#E1E0CC] px-3 py-1 rounded-full border border-[rgba(201,168,76,0.25)] bg-[rgba(201,168,76,0.06)] hover:text-[#C9A84C] hover:border-[rgba(201,168,76,0.5)] transition-colors"
+                          >
+                            {link.label}
+                            <ArrowUpRight className="h-3.5 w-3.5" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[rgba(255,255,255,0.06)]">
+                      {work.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[9px] px-2 py-0.5 rounded-full bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] text-[#666]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </GlowingShadow>
+              </motion.div>
+            );
+          })}
+        </div>
+
         {/* ── Row 1: 4 Cards in the Same Row (Yesdas 1st, Entrepreneur Cell 2nd, Forge 3rd, Quantum 4th) ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch mb-6">
           {topRowExperiences.map((exp, i) => {
@@ -157,7 +256,7 @@ export function ExperienceSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.7,
-                  delay: 0.15 + i * 0.1,
+                  delay: 0.35 + i * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className="h-full"
@@ -218,7 +317,7 @@ export function ExperienceSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{
             duration: 0.7,
-            delay: 0.55,
+            delay: 0.75,
             ease: [0.16, 1, 0.3, 1],
           }}
           className="max-w-3xl mx-auto w-full"
